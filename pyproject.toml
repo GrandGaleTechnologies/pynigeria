@@ -1,0 +1,17 @@
+[project]
+name = "pynigeria"
+version = "0.1.0"
+description = "Accurate and up-to-date data on Nigerian states, LGAs, cities, towns, and villages"
+readme = "README.md"
+authors = [
+    { name = "GrandGale Technologies", email = "admin@grandgale.tech" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+pynigeria = "pynigeria:main"
+
+[build-system]
+requires = ["uv_build>=0.9.3,<0.10.0"]
+build-backend = "uv_build"
