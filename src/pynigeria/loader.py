@@ -7,7 +7,7 @@ from pynigeria.models import LGA, Settlement, State
 
 
 class DataLoader:
-    """Handles loading and validation of geographic data."""
+    """Handles loading and validation of data, can be extended to load other data types (json,csv,excel)."""
 
     def __init__(self, data_dir: Path | None = None) -> None:
         """Initialize the data loader.
