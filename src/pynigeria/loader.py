@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from typing import Any
 from pynigeria.exceptions import DataIntegrityError, DataLoadError
-from pynigeria.models import LGA, Settlement, State
+from pynigeria.models import State
 
 
 class DataLoader:
@@ -78,45 +78,3 @@ class DataLoader:
             raise DataIntegrityError("Duplicate state codes found")
 
         return states
-
-    def load_lgas(self) -> list[LGA]:
-        """Load and validate LGA data.
-
-        Returns:
-            List of validated LGA objects
-
-        Raises:
-            DataLoadError: If data cannot be loaded
-            DataIntegrityError: If validation fails
-        """
-        data = self.load_json("lgas.json")
-        lgas = []
-
-        try:
-            for item in data:
-                lgas.append(LGA(**item))
-        except Exception as e:
-            raise DataIntegrityError(f"Invalid LGA data: {e}")
-
-        return lgas
-
-    def load_settlements(self) -> list[Settlement]:
-        """Load and validate settlement data.
-
-        Returns:
-            List of validated Settlement objects
-
-        Raises:
-            DataLoadError: If data cannot be loaded
-            DataIntegrityError: If validation fails
-        """
-        data = self.load_json("settlements.json")
-        settlements = []
-
-        try:
-            for item in data:
-                settlements.append(Settlement(**item))
-        except Exception as e:
-            raise DataIntegrityError(f"Invalid settlement data: {e}")
-
-        return settlements
