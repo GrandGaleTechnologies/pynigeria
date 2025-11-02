@@ -1,6 +1,6 @@
 [project]
 name = "pynigeria"
-version = "0.1.0"
+version = "1.2.0"
 description = "Accurate and up-to-date data on Nigerian states, LGAs, cities, towns, and villages"
 readme = "README.md"
 authors = [
