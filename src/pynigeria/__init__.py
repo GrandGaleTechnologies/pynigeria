@@ -1,2 +1,3 @@
-def main() -> None:
-    print("Hello from pynigeria!")
+from pynigeria.core import Nigeria
+
+__all__ = ["Nigeria"]

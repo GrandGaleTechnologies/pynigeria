@@ -1,5 +1,6 @@
 from __future__ import annotations
-from pydantic import BaseModel, Field
+
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class State(BaseModel):
@@ -12,10 +13,9 @@ class State(BaseModel):
         capital: State capital city
     """
 
-    name: str = Field(..., min_length=1, description="State name")
-    code: str = Field(..., pattern=r"^NG-[A-Z]{2}$", description="ISO state code")
-    capital: str = Field(..., min_length=1, description="State capital")
+    # Make obj immutable
+    model_config = ConfigDict(frozen=True)
 
-    class Config:
-        frozen = True  # Make immutable
-
+    name: str = Field(min_length=1, description="State name")
+    code: str = Field(pattern=r"^NG-[A-Z]{2}$", description="ISO state code")
+    capital: str = Field(min_length=1, description="State capital")
