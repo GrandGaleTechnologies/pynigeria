@@ -29,7 +29,7 @@ jobs:
           
       - name: Install dependencies
         run: |
-          uv pip install build twine flake8 ruff pylint pytest
+          uv add build twine flake8 ruff pylint pytest
           
       - name: Build package
         run: python -m build
