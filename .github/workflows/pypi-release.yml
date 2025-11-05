@@ -18,9 +18,11 @@ jobs:
         with:
           python-version: "3.12"
           
-      - name: Install uv
+      - name: Install uv and dependencies
         run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
+          python -m pip install --upgrade uv
+          uv venv
+          uv add flake8 ruff pylint pytest
           
       - name: Install build dependencies
         run: |
