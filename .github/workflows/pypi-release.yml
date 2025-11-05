@@ -31,7 +31,7 @@ jobs:
           uv add build twine flake8 ruff pylint pytest
           
       - name: Build package
-        run: python -m build
+        run: uv run build
         
       - name: Publish to PyPI
         env:
