@@ -1,0 +1,42 @@
+repos:
+  # Ruff (linter + formatter)
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.14.3
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  # Flake8 (additional lint checks)
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.3.0  # Use the latest stable version
+    hooks:
+      - id: flake8
+        args:
+          - --max-line-length=180
+          - --max-complexity=20
+          - --count
+          - --show-source
+          - --statistics
+
+   #  Custom UV Type Checker (ty)
+  - repo: local
+    hooks:
+      - id: ty
+        name: Ty Type Checker
+        entry: ty check
+        language: system
+        types: [python]
+
+
+  # Pytest (testing)
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run Pytest
+        entry: pytest
+        language: system
+        pass_filenames: false      
+        types: [python]
+        always_run: true
+        stages: [pre-commit]

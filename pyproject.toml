@@ -7,7 +7,13 @@ authors = [
     { name = "GrandGale Technologies", email = "admin@grandgale.tech" }
 ]
 requires-python = ">=3.12"
-dependencies = ["pydantic>=2.12.3"]
+dependencies = [
+    "pre-commit>=4.3.0",
+    "pydantic>=2.12.3",
+    "pytest>=8.4.2",
+    "ruff>=0.14.3",
+    "ty>=0.0.1a25",
+]
 
 [project.scripts]
 pynigeria = "pynigeria:main"
