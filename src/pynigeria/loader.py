@@ -89,5 +89,3 @@ class DataLoader:
 
         return states
 
-def test():
-    pass
