@@ -28,10 +28,10 @@ jobs:
           
       - name: Install dependencies
         run: |
-          uv add build twine flake8 ruff pylint pytest
+          uv add build twine 
           
       - name: Build package
-        run: uv run build
+        run: uv run python -m build
         
       - name: Publish to PyPI
         env:
