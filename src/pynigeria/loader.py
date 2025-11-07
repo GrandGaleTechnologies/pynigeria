@@ -88,3 +88,4 @@ class DataLoader:
             raise DataIntegrityError("Duplicate state codes found")
 
         return states
+
